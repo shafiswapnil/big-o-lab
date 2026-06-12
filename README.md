@@ -1,10 +1,4 @@
-# big-o-lab
-
-An interactive laboratory for understanding Big O complexity through real-world benchmarking and visualization.
-
-
-
-## Overview
+# Visualize Big O: Algorithm Speed Tester
 
 This project demonstrates how different algorithms perform as data size increases. By comparing actual execution times, you'll see firsthand why algorithm complexity matters.
 
