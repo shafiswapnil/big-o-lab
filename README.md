@@ -6,6 +6,8 @@ An interactive laboratory for understanding Big O complexity through real-world 
 
 This project demonstrates how different algorithms perform as data size increases. By comparing actual execution times, you'll see firsthand why algorithm complexity matters.
 
+NextWork Documentation: [Visualize Big O: Algorithm Speed Tester](https://learn.nextwork.org/zealous_orange_zesty_pummelo/docs/4272a8b8-aa17-4794-9aed-efcdb666dde9)
+
 ## What's Inside
 
 ### Core Modules
