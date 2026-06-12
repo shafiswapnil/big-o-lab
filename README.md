@@ -2,6 +2,8 @@
 
 An interactive laboratory for understanding Big O complexity through real-world benchmarking and visualization.
 
+
+
 ## Overview
 
 This project demonstrates how different algorithms perform as data size increases. By comparing actual execution times, you'll see firsthand why algorithm complexity matters.
@@ -33,6 +35,10 @@ NextWork Documentation: [Visualize Big O: Algorithm Speed Tester](https://learn.
 
 - **big_o_comparison.png** - Shows growth curves for all algorithms
 - **fib_comparison.png** - Demonstrates the impact of memoization on Fibonacci
+
+![Big O Comparison](big_o_comparison.png)
+
+![Fibonacci Comparison](fib_comparison.png)
 
 ## Setup
 
