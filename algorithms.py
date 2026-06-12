@@ -1,4 +1,5 @@
 import random
+from functools import lru_cache
 
 
 def constant_access(data):
@@ -29,6 +30,22 @@ def bubble_sort(data):
                 arr[j], arr[j + 1] = arr[j + 1], arr[j]
     return arr
 
+
+def fib_naive(n):
+    """O(2^n) - Naive recursive Fibonacci."""
+    if n <= 1:
+        return n
+    return fib_naive(n - 1) + fib_naive(n - 2)
+
+
+@lru_cache(maxsize=None)
+def fib_memoized(n):
+    """O(n) - Memoized Fibonacci using lru_cache."""
+    if n <= 1:
+        return n
+    return fib_memoized(n - 1) + fib_memoized(n - 2)
+
+    
 
 ## What This Code Does
 

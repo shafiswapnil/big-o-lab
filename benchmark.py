@@ -1,7 +1,13 @@
 import time
 import random
-from algorithms import constant_access, linear_search, sort_data, bubble_sort
-
+from algorithms import (
+    constant_access,
+    linear_search,
+    sort_data,
+    bubble_sort,
+    fib_naive,
+    fib_memoized,
+)
 
 def measure_time(func, *args):
     """Measure execution time of a function using perf_counter."""
@@ -47,6 +53,27 @@ def run_benchmarks():
     return sizes, results
 
 
+def run_fib_benchmarks():
+    """Benchmark naive vs. memoized Fibonacci."""
+    fib_sizes = [10, 15, 20, 25, 30, 35]
+    fib_results = {
+        "O(2^n) - Naive Fibonacci": [],
+        "O(n) - Memoized Fibonacci": [],
+    }
+
+    for n in fib_sizes:
+        # Naive
+        t = measure_time(fib_naive, n)
+        fib_results["O(2^n) - Naive Fibonacci"].append(t)
+
+        # Memoized (clear cache before each run for fair comparison)
+        fib_memoized.cache_clear()
+        t = measure_time(fib_memoized, n)
+        fib_results["O(n) - Memoized Fibonacci"].append(t)
+
+    return fib_sizes, fib_results
+
+
 if __name__ == "__main__":
     sizes, results = run_benchmarks()
 
@@ -64,6 +91,20 @@ if __name__ == "__main__":
                 print(f"{t:<28.6f}", end="")
             else:
                 print(f"{'skipped':<28}", end="")
+        print()
+
+    print("\n\nFibonacci Benchmark:")
+    print("-" * 60)
+    fib_sizes, fib_results = run_fib_benchmarks()
+    print(f"{'n':<10}", end="")
+    for name in fib_results:
+        print(f"{name:<30}", end="")
+    print()
+
+    for i, n in enumerate(fib_sizes):
+        print(f"{n:<10}", end="")
+        for name in fib_results:
+            print(f"{fib_results[name][i]:<30.6f}", end="")
         print()
 
 
