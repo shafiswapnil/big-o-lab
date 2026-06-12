@@ -106,9 +106,3 @@ if __name__ == "__main__":
         for name in fib_results:
             print(f"{fib_results[name][i]:<30.6f}", end="")
         print()
-
-
-
-## Command to Run
-
-# python3 benchmark.py

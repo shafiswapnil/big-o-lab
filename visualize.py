@@ -1,5 +1,5 @@
 import matplotlib.pyplot as plt
-from benchmark import run_benchmarks
+from benchmark import run_benchmarks, run_fib_benchmarks
 
 
 def create_chart():
@@ -24,11 +24,25 @@ def create_chart():
         print("Chart saved as big_o_comparison.png")
 
 
+def create_fib_chart():
+    """Generate a chart comparing naive vs. memoized Fibonacci."""
+    fib_sizes, fib_results = run_fib_benchmarks()
+
+    plt.figure(figsize=(10, 6))
+
+    for name, times in fib_results.items():
+        plt.plot(fib_sizes, times, marker="o", linewidth=2, label=name)
+
+    plt.xlabel("Fibonacci Number (n)")
+    plt.ylabel("Time (seconds)")
+    plt.title("Exponential vs. Linear: Naive vs. Memoized Fibonacci")
+    plt.legend()
+    plt.grid(True, alpha=0.3)
+    plt.tight_layout()
+    plt.savefig("fib_comparison.png", dpi=150)
+    print("Chart saved as fib_comparison.png")
+
+
 if __name__ == "__main__":
     create_chart()
-
-
-
-## Command to Run
-
-# python3 visualize.py
+    create_fib_chart()
